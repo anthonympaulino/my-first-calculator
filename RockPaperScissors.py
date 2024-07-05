@@ -1,34 +1,43 @@
 import random
+computer_options = ["Rock", "Paper", "Scissors"]
+computer_choice = random.choice(computer_options)
+print("Welcome to the RockPaperScissors game!")
+player_choice = input("choose A for Rock B for Paper and C for Scissors: ")
+A = "Rock" 
+B = "Paper"
+C = "Scissors"
+if player_choice == "A":
+    if computer_choice == "Rock":
+        print(f"You chose {A} and computer chose Rock.")
+        print("It is a tie.")
+    elif computer_choice == "Paper":
+        print(f"You chose {A} and computer chose Paper.")
+        print("You lose.")
+    else:
+        print(f"You chose {A} and computer chose Scissors.")
+        print("You win!")
 
-def get_choices() :
-    output = input("Enter a choice(rock,paper,scissors): ")
-    options = ["rock", "paper", "scissors"]
-    computer_choice = random.choice(options)
-    dict = {"player" : output , "computer" : computer_choice }
-    return dict
+elif player_choice == "B":
+    if computer_choice == "Rock":
+        print(f"You chose {B} and computer chose Rock.")
+        print("You win!")
+    elif computer_choice == "Paper":
+        print(f"You chose {B} and computer chose Paper.")
+        print("It is a tie.")
+    else:
+        print(f"You chose {B} and computer chose Scissors.")
+        print("You lose.")
 
+elif player_choice == "C":
+    if computer_choice == "Rock":
+        print(f"You chose {C} and computer chose Rock.")
+        print("You lose.")
+    elif computer_choice == "Paper":
+        print(f"You chose {C} and computer chose Paper.")
+        print("You win!")
+    else:
+        print(f"You chose {C} and computer chose Scissors.")
+        print("It is a tie")
 
-choices = get_choices()
-
-def check_wins(player, computer):
-    print(f"You chose {player} and computer chose {computer}.")
-    if player == computer:
-        print("It is a draw.")
-    elif player == "scissors" :
-        if computer == "paper" :
-            return "Scissors cut paper. You win!"
-        else :
-            return "Rock smashes scissors. You lose."
-    elif player == "paper" :
-        if computer == "scissors" :
-            return "Scissors cuts paper. You lose."
-        else :
-            return "Paper covers rock. You win!"
-    elif player == "rock" :
-        if computer == "paper" :
-            return "Paper covers rock. You lose."
-        else :
-            return "Rock smashes scissors. You win!"
-    
-result = check_wins(choices["player"] , choices["computer"])
-print(result)
+else:
+    print("Invalid response. Choose between A, B and C")
